@@ -19,10 +19,12 @@ jobs:
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '2.2.3' # 你可以指定你所需要的Flutter版本
+        flutter-version: '3.0.0' # 更新到 Flutter 3.0.0 以包含 Dart 2.18.6
 
     - name: Install dependencies
-      run: flutter pub get
+      run: |
+        flutter pub get
+        flutter doctor -v
 
     - name: Run tests
       run: flutter test
