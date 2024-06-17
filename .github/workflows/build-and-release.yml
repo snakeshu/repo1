@@ -29,11 +29,14 @@ jobs:
     - name: Upgrade Flutter
       run: flutter upgrade
 
+    - name: Clean Flutter Project
+      run: flutter clean
+
     - name: Install dependencies
       run: flutter pub get
 
     - name: Build release APK
-      run: flutter build apk --release
+      run: flutter build apk --release --verbose
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
