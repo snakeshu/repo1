@@ -26,20 +26,17 @@ jobs:
       with:
         flutter-version: '2.0.6'
 
+    - name: Upgrade Flutter
+      run: flutter upgrade
+
     - name: Install dependencies
       run: flutter pub get
 
     - name: Build release APK
       run: flutter build apk --release
 
-    - name: Commit release APK
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git checkout -b release
-        git add build/app/outputs/flutter-apk/app-release.apk
-        git commit -m 'Add release APK'
-        git push -u origin release
-
-
-
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: app-release-apk
+        path: build/app/outputs/flutter-apk/app-release.apk
