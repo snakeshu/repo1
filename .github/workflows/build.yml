@@ -19,7 +19,7 @@ jobs:
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.0.0' # 更新到 Flutter 3.0.0 以包含 Dart 2.18.6
+        flutter-version: '3.3.10' # 指定Flutter版本
 
     - name: Install dependencies
       run: |
